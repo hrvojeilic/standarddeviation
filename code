@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float proracunSD(float mjerenja[]);
+
+int main()
+{
+    int i;
+    float mjerenja[10];
+
+    cout << "Unesi 10 mjerenja: ";
+    for(i = 0; i < 10; ++i)
+        cin >> mjerenja[i];
+
+    cout << endl << "Standardna devijacija = " << proracunSD(mjerenja);
+    
+
+    return 0;
+}
+
+float proracunSD(float mjerenja[])
+{
+    float suma = 0.0, AritmetickaSredina, StandardnaDevijacija = 0.0;
+
+    int i;
+
+    for(i = 0; i < 10; ++i)
+    {
+        suma += mjerenja[i];
+    }
+
+    AritmetickaSredina = suma/10;
+
+    for(i = 0; i < 10; ++i)
+        StandardnaDevijacija += pow(mjerenja[i] - AritmetickaSredina, 2);
+
+    return sqrt(StandardnaDevijacija / 10);
+}
